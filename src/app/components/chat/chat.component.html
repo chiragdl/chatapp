@@ -1,0 +1,46 @@
+<div class="container mt-5" *ngIf="messages">
+    <ul class="list-group">
+      <li 
+        *ngFor="let message of messages" 
+        [ngClass]="{'sent-message': message.isSender, 'received-message': !message.isSender}" 
+        class="list-group-item"
+      >
+        {{ message.text }}
+      </li>
+    </ul>
+  </div>
+  
+  <form style="position: fixed; bottom: 0; width: 100%; background: #f8f9fa; padding: 10px; display: flex; align-items: center;">
+    <input 
+      style="flex: 1; margin-right: 10px; padding: 10px; border: 2px solid #ccc; border-radius: 5px;" 
+      type="text" 
+      name="message" 
+      [(ngModel)]="message" 
+      placeholder="Type your message"
+    >
+    <button 
+      type="button" 
+      style="margin-right: 10px; background-color: transparent; border: none; cursor: pointer; display: flex; align-items: center;"
+    >
+      <input 
+        type="file" 
+        style="display: none;" 
+        id="fileInput"
+        (change)="onFileSelected($event)"
+      >
+      <label for="fileInput" style="margin: 0; cursor: pointer;">
+        <img 
+          src="https://cdn-icons-png.flaticon.com/512/892/892692.png" 
+          alt="Upload File" 
+          style="width: 24px; height: 24px;"
+        >
+      </label>
+    </button>
+    <button 
+      style="padding: 10px 20px; background-color: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer;" 
+      (click)="sendMessage()"
+    >
+      Send
+    </button>
+  </form>
+  

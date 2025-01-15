@@ -1,0 +1,14 @@
+.sent-message {
+    text-align: right;
+    background-color: #dcf8c6; /* Light green, similar to WhatsApp */
+    border-radius: 10px;
+    margin-left: 30%;
+  }
+  
+  .received-message {
+    text-align: left;
+    background-color: #ffffff; /* White for received messages */
+    border-radius: 10px;
+    margin-right: 30%;
+  }
+  
